@@ -1,0 +1,13 @@
+{
+  "userAgent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.256",
+  "sleep_after_loop": 30000,
+  "sleep_after_match": 200,
+  "sleep_after_load" : 200,
+  "decodeEntities": false,
+  "puppeteer_timeout": 30000,
+  "args": [],
+  "scr": {
+    "width": 1440,
+    "height": 900
+  }
+}
