@@ -1,3 +1,29 @@
 {
-  "baseUrl": "http://google.com"
+  "baseUrl": "https://goods.ru",
+  "parsePages": [
+    "/catalog/details/mikser-kitchenaid-artisan-5ksm175pselt-bezhevyy-100023347811/",
+    "/catalog/details/mikser-vitek-vt-1428-bk-100023614461/",
+    "/catalog/details/mikser-kitfort-kt-1336-1-100023635046/",
+    "/catalog/details/mikser-kitfort-kt-1308-4-100023382141/",
+    "/catalog/details/mikser-philips-hr1459-00-100000074947"
+  ],
+  "prtScr": false,
+  "disableImgs": true,
+  "tags": [
+    {
+      "name": "title",
+      "selector": "header.title-page > h1",
+      "type": "text"
+    },
+    {
+      "name": "price",
+      "selector": "div.prod--price > span.new",
+      "type": "text"
+    },
+    {
+      "name": "img",
+      "selector": "div.image-zoom-wrapper.slider-content > img",
+      "type": "img"
+    }
+  ]
 }
