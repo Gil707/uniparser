@@ -3,14 +3,12 @@ const puppeteer = require('puppeteer');
 const settings = require('../config/settings');
 const helpers = require('./helpers');
 const rule = require('../rules/' + process.argv[2] + '.json');
-
 const config = {...settings, ...rule};
 
 async function getContent() {
 
-    const allPages = config.parsePages;
     const tags = config.tags;
-    let pagesFlowArray = helpers.splitArray(allPages, config.pages_per_call);
+    let pagesFlowArray = helpers.splitArray(config.parsePages, config.pages_per_call);
 
     const browser = await puppeteer.launch({
         timeout: config.puppeteer_timeout,

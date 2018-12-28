@@ -6,6 +6,6 @@ const fs = require('fs');
     if (fs.existsSync('./rules/' + process.argv[2] + '.json')) {
         let k = await parser.getContent();
         return true
-    }
+    } else console.log('No rule detected.')
 
 })();
