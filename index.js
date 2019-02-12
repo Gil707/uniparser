@@ -1,11 +1,9 @@
-const parser = require('./components/parser');
+const Parser = require('./components/parser');
 const fs = require('fs');
 
 (async () => {
-
-    if (fs.existsSync('./rules/' + process.argv[2] + '.json')) {
-        let k = await parser.getContent();
-        return true
-    } else console.log('No rule detected.')
-
+        let parser = await Parser.build();
+        await parser.goto('http://google.com');
+        let content = await parser.getContentsOf('.content');
+        console.log(content);
 })();
