@@ -2,8 +2,8 @@ const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 const settings = require('../config/settings');
 const helpers = require('./helpers');
-// const rule = require('../rules/' + process.argv[2] + '.json');
-const rule = require('../rules/1.json');
+const rule = require('../rules/' + process.argv[2] + '.json');
+// const rule = require('../rules/1.json');
 const config = {...settings, ...rule};
 
 class Parser {
