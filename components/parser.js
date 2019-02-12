@@ -3,12 +3,12 @@ const puppeteer = require('puppeteer');
 const settings = require('../config/settings');
 const helpers = require('./helpers');
 const rule = require('../rules/' + process.argv[2] + '.json');
-// const rule = require('../rules/1.json');
 const config = {...settings, ...rule};
 
 class Parser {
 
     static async build() {
+
         const browser = await puppeteer.launch({
             headless: true,
             args: ['--no-sandbox']
@@ -50,6 +50,10 @@ class Parser {
 
     async getBody() {
         return this.page.evaluate(() => document.body.innerHTML);
+    }
+
+    async writeToDB(type) {
+        console.log(type);
     }
 
     // async getContent() {

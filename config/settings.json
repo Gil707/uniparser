@@ -10,5 +10,10 @@
   "scr": {
     "width": 1440,
     "height": 900
+  },
+  "db": {
+    "mongo": {
+      "uri": "mongodb://root:qwerty123@ds213665.mlab.com:13665/advnode_dev"
+    }
   }
 }

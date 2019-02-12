@@ -1,15 +1,17 @@
-const Parser = require('./components/parser');
-const fs = require('fs');
+require('module-alias/register');
+const mongoose = require('mongoose');
+const config = require('@config/settings');
 
-(async () => {
+const fastify = require('fastify')({
+    logger: true
+});
 
-    if (fs.existsSync('./rules/' + process.argv[2] + '.json')) {
-        let parser = await Parser.build();
-        await parser.goto('http://google.com');
-        let content = await parser.getContentsOf('.content');
+fastify.register(require('fastify-favicon'));
+fastify.register(require('./api/v1/routes'), { prefix: '/api/v1' });
 
-        console.log(content);
-        return await parser.close();
-    } else console.log('No rule detected.')
+fastify.get('/', async (req, reply) => {
+    await mongoose.connect(config.db.mongo.uri);
+    reply.send({mongoose: mongoose.connection.readyState, state: 'dev'});
+});
 
-})();
+fastify.listen(3000);
